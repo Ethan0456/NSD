@@ -96,6 +96,7 @@ class NsdHelper(
             // When the network service is no longer available.
             // Internal bookkeeping code goes here.
             Log.e(TAG, "service lost: $service")
+            ls.postValue(ls.value!!.minus(listOf(service)))
         }
 
         override fun onDiscoveryStopped(serviceType: String) {
